@@ -1,20 +1,61 @@
-<header>
-  <div>
-    <b>Guitar Practice Cloud</b>
-    <small>Le cloud qui manque à votre ampli</small>
+<mat-toolbar class="app-toolbar" role="banner">
+  <div class="brand" routerLink="/tracks" role="button" tabindex="0" aria-label="Accueil Guitar Practice Cloud">
+    <div class="brand-icon-wrapper">
+      <mat-icon class="brand-icon">graphic_eq</mat-icon>
+    </div>
+    <div class="brand-text">
+      <span class="brand-title">Guitar Practice Cloud</span>
+      <span class="brand-subtitle">Le cloud qui manque à votre ampli</span>
+    </div>
   </div>
-  <nav aria-label="Navigation principale">
-    <a routerLink="/tracks">Backing tracks</a>
-    <a routerLink="/profile">Profil</a>
+
+  <span class="toolbar-spacer"></span>
+
+  <nav class="nav-links" aria-label="Navigation principale">
+    <a
+      mat-button
+      routerLink="/tracks"
+      routerLinkActive="active-nav-link"
+      class="nav-btn"
+    >
+      <mat-icon class="nav-icon">queue_music</mat-icon>
+      <span class="nav-label">Backing tracks</span>
+    </a>
+
+    <a
+      mat-button
+      routerLink="/profile"
+      routerLinkActive="active-nav-link"
+      class="nav-btn"
+    >
+      <mat-icon class="nav-icon">person</mat-icon>
+      <span class="nav-label">Profil</span>
+    </a>
+
     @if (auth.isAuthenticated()) {
-      <button type="button" class="btn-logout" (click)="logout()" aria-label="Se déconnecter">
-        Déconnexion
+      <button
+        type="button"
+        mat-flat-button
+        class="auth-btn logout-btn"
+        (click)="logout()"
+        aria-label="Se déconnecter"
+      >
+        <mat-icon class="nav-icon">logout</mat-icon>
+        <span class="nav-label">Déconnexion</span>
       </button>
     } @else {
-      <a routerLink="/login">Connexion</a>
+      <a
+        mat-flat-button
+        routerLink="/login"
+        routerLinkActive="active-nav-link"
+        class="auth-btn login-btn"
+      >
+        <mat-icon class="nav-icon">login</mat-icon>
+        <span class="nav-label">Connexion</span>
+      </a>
     }
   </nav>
-</header>
+</mat-toolbar>
 
 <main>
   <router-outlet />
