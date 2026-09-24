@@ -19,26 +19,26 @@
         <button type="button" (click)="load()">Actualiser</button>
       </div>
       @if (loading()) {
-        <p>Chargement…</p>
+      <p>Chargement…</p>
       }
       @for (track of tracks(); track track.id) {
-        <div class="track">
-          <div>
-            <b>{{ track.title }}</b>
-            <small>{{ track.originalName }} · {{ track.size }} Ko</small>
-          </div>
-          <button type="button" (click)="play(track)" [attr.aria-label]="'Lire ' + track.title">▶</button>
+      <div class="track">
+        <div>
+          <b>{{ track.title }}</b>
+          <small>{{ track.originalName }} · {{ track.size }} Ko</small>
         </div>
+        <button type="button" (click)="play(track)" [attr.aria-label]="'Lire ' + track.title">▶</button>
+      </div>
       } @empty {
-        <p>Aucune piste.</p>
+      <p>Aucune piste.</p>
       }
       <div class="pager">
         <button type="button" (click)="go(page() - 1)" [disabled]="page() === 1">Préc.</button>
-        <span>Page {{ page() }} / {{ pages() }}</span>
+        <span>Page {{ page() }} sur {{ pages() }}</span>
         <button type="button" (click)="go(page() + 1)" [disabled]="page() === pages()">Suiv.</button>
       </div>
       @if (audioUrl()) {
-        <audio [src]="audioUrl()" controls autoplay></audio>
+      <audio [src]="audioUrl()" controls autoplay></audio>
       }
     </article>
   </div>
