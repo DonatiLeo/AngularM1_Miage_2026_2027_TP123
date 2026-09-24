@@ -1,0 +1,13 @@
+0 verbose cli /Users/donati/.nvm/versions/node/v26.8.2/bin/node /Users/donati/.nvm/versions/node/v26.8.2/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.19.1
+2 info using node@v26.8.2
+3 silly config load:file:/Users/donati/.nvm/versions/node/v26.8.2/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/donati/.gemini/antigravity/worktrees/AngularM1_Miage_2026_2027_TP123/add_material_paginator_tracks/frontend-starter/.npmrc
+5 silly config load:file:/Users/donati/.nvm/versions/node/v26.8.2/etc/npmrc
+6 verbose title npm exec ng build
+7 verbose argv "exec" "--" "ng" "build"
+8 verbose logfile logs-max:10 dir:/Users/donati/.gemini/antigravity/worktrees/AngularM1_Miage_2026_2027_TP123/add_material_paginator_tracks/frontend-starter/.npm/_logs/2026-09-24T08_47_15_732Z-
+9 verbose logfile /Users/donati/.gemini/antigravity/worktrees/AngularM1_Miage_2026_2027_TP123/add_material_paginator_tracks/frontend-starter/.npm/_logs/2026-09-24T08_47_15_732Z-debug-0.log
+10 silly logfile done cleaning log files
+11 http fetch GET https://registry.npmjs.org/npm attempt 1 failed with ENOTFOUND
+12 http fetch GET https://registry.npmjs.org/npm attempt 2 failed with ENOTFOUND
