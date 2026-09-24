@@ -1,34 +1,85 @@
 @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 :root {
+  --bg-primary: #f3f7f5;
+  --bg-card: #ffffff;
+  --text-primary: #17312a;
+  --text-secondary: #61756f;
+  --border-color: #e1ebe7;
+  --input-bg: #ffffff;
+  --input-border: #b8cbc5;
+  --accent-color: #1d755e;
+  --accent-hover: #26896f;
+  --card-shadow: 0 8px 25px rgba(23, 49, 42, 0.08);
+  --error-color: #a33;
+
   font-family: Inter, system-ui, sans-serif;
-  color: #17312a;
-  background: #f3f7f5;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+body.dark-theme {
+  --bg-primary: #0d1513;
+  --bg-card: #15221e;
+  --text-primary: #e6f2ed;
+  --text-secondary: #90a8a0;
+  --border-color: #233731;
+  --input-bg: #101c18;
+  --input-border: #2e4740;
+  --accent-color: #34b38a;
+  --accent-hover: #43c99e;
+  --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.55);
+  --error-color: #ff6b6b;
+
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; }
+body {
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
 header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5vw; color: white; background: #123d32; }
 header small { opacity: 0.7; }
 nav { display: flex; gap: 1rem; }
-a { color: #1d755e; }
+a { color: var(--accent-color); }
 header a { color: white; }
 main { max-width: 1050px; margin: 2rem auto; padding: 0 1rem; }
 .hero { margin-bottom: 1rem; padding: 2rem; color: white; background: linear-gradient(120deg, #123d32, #276c57); border-radius: 20px; }
 .eyebrow { letter-spacing: 0.15em; font-size: 0.75rem; }
 .grid { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; }
-.card { padding: 1.3rem; background: white; border-radius: 16px; box-shadow: 0 8px 25px #17312a14; }
+.card { padding: 1.3rem; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; box-shadow: var(--card-shadow); transition: background-color 0.25s ease, border-color 0.25s ease; }
 .card form, label { display: grid; gap: 0.4rem; }
 label { margin: 0.8rem 0; }
-input { padding: 0.75rem; border: 1px solid #b8cbc5; border-radius: 8px; }
-button { padding: 0.7rem 1rem; color: white; background: #1d755e; border: 0; border-radius: 8px; cursor: pointer; }
+input { padding: 0.75rem; background: var(--input-bg); color: var(--text-primary); border: 1px solid var(--input-border); border-radius: 8px; transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease; }
+input:focus { outline: none; border-color: var(--accent-color); }
+button { padding: 0.7rem 1rem; color: white; background: var(--accent-color); border: 0; border-radius: 8px; cursor: pointer; transition: background-color 0.2s ease; }
+button:hover:not(:disabled) { background: var(--accent-hover); }
 button:disabled { opacity: 0.45; }
 .row, .track, .pager { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-.track { padding: 0.8rem 0; border-bottom: 1px solid #e1ebe7; }
-.track small { display: block; color: #61756f; }
+.track { padding: 0.8rem 0; border-bottom: 1px solid var(--border-color); }
+.track small { display: block; color: var(--text-secondary); }
 .pager { margin: 1rem 0; }
 audio { width: 100%; }
-.error { color: #a33; }
+.error { color: var(--error-color); }
+
+/* Dark mode adjustments for Angular Material components */
+body.dark-theme mat-paginator {
+  color: var(--text-primary);
+}
+body.dark-theme .mat-mdc-paginator-range-label,
+body.dark-theme .mat-mdc-paginator-page-size-label {
+  color: var(--text-secondary);
+}
+body.dark-theme .mat-mdc-icon-button {
+  color: var(--text-primary);
+}
+body.dark-theme .mat-mdc-icon-button:disabled {
+  color: var(--text-secondary);
+  opacity: 0.4;
+}
 
 @media (max-width: 720px) {
   header, .grid { display: block; }

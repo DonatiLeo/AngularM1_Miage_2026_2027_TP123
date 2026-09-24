@@ -157,6 +157,58 @@
   border-color: rgba(239, 68, 68, 0.7);
 }
 
+/* Theme Toggle Slider */
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  margin-left: 0.4rem;
+  backdrop-filter: blur(6px);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle-container:hover {
+  background: rgba(0, 0, 0, 0.28);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.theme-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.35);
+  transition: color 0.25s ease, transform 0.25s ease;
+  user-select: none;
+}
+
+.sun-icon.active {
+  color: #facc15;
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 4px rgba(250, 204, 21, 0.6));
+}
+
+.moon-icon.active {
+  color: #93c5fd;
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 4px rgba(147, 197, 253, 0.6));
+}
+
+.theme-slider {
+  --mdc-switch-selected-track-color: #38b289;
+  --mdc-switch-selected-handle-color: #ffffff;
+  --mdc-switch-unselected-track-color: rgba(255, 255, 255, 0.3);
+  --mdc-switch-unselected-handle-color: #e5f2ed;
+  transform: scale(0.85);
+  margin: 0 -4px;
+}
+
 @media (max-width: 768px) {
   .app-toolbar {
     flex-direction: column;

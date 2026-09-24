@@ -54,6 +54,20 @@
         <span class="nav-label">Connexion</span>
       </a>
     }
+
+    <div
+      class="theme-toggle-container"
+      [attr.title]="themeService.isDarkMode() ? 'Passer en mode clair' : 'Passer en mode sombre'"
+    >
+      <mat-icon class="theme-icon sun-icon" [class.active]="!themeService.isDarkMode()">light_mode</mat-icon>
+      <mat-slide-toggle
+        [checked]="themeService.isDarkMode()"
+        (change)="themeService.setDarkMode($event.checked)"
+        aria-label="Basculer le mode sombre"
+        class="theme-slider"
+      ></mat-slide-toggle>
+      <mat-icon class="theme-icon moon-icon" [class.active]="themeService.isDarkMode()">dark_mode</mat-icon>
+    </div>
   </nav>
 </mat-toolbar>
 
