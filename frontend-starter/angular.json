@@ -20,13 +20,39 @@
                         "styles": [
                             "src/styles.css"
                         ]
-                    }
+                    },
+                    "configurations": {
+                        "production": {
+                            "budgets": [
+                                {
+                                    "type": "initial",
+                                    "maximumWarning": "1MB",
+                                    "maximumError": "2MB"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "4kB",
+                                    "maximumError": "8kB"
+                                }
+                            ],
+                            "outputHashing": "all"
+                        },
+                        "development": {
+                            "optimization": false,
+                            "extractLicenses": false,
+                            "sourceMap": true
+                        }
+                    },
+                    "defaultConfiguration": "production"
                 },
                 "serve": {
                     "builder": "@angular/build:dev-server",
                     "configurations": {
+                        "production": {
+                            "buildTarget": "gpc:build:production"
+                        },
                         "development": {
-                            "buildTarget": "gpc:build"
+                            "buildTarget": "gpc:build:development"
                         }
                     },
                     "defaultConfiguration": "development"

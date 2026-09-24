@@ -66,19 +66,92 @@ audio { width: 100%; }
 .error { color: var(--error-color); }
 
 /* Dark mode adjustments for Angular Material components */
-body.dark-theme mat-paginator {
+body.dark-theme mat-paginator,
+body.dark-theme .mat-mdc-paginator {
+  --mat-paginator-container-text-color: var(--text-primary);
+  --mat-paginator-enabled-icon-color: var(--accent-color);
+  --mat-paginator-disabled-icon-color: rgba(230, 242, 237, 0.25);
+  --mat-select-enabled-trigger-text-color: var(--text-primary);
+  --mat-select-enabled-arrow-color: var(--accent-color);
+  --mat-select-panel-background-color: var(--bg-card);
+  background-color: transparent !important;
   color: var(--text-primary);
 }
+
+/* Paginator labels & text */
 body.dark-theme .mat-mdc-paginator-range-label,
 body.dark-theme .mat-mdc-paginator-page-size-label {
-  color: var(--text-secondary);
+  color: var(--text-primary) !important;
+  font-weight: 500;
 }
-body.dark-theme .mat-mdc-icon-button {
-  color: var(--text-primary);
+
+/* Paginator page-size select dropdown trigger */
+body.dark-theme .mat-mdc-paginator .mat-mdc-select-value {
+  color: var(--text-primary) !important;
+  font-weight: 600;
 }
-body.dark-theme .mat-mdc-icon-button:disabled {
-  color: var(--text-secondary);
-  opacity: 0.4;
+
+body.dark-theme .mat-mdc-paginator .mat-mdc-select-arrow svg {
+  fill: var(--accent-color) !important;
+}
+
+body.dark-theme .mat-mdc-paginator .mdc-line-ripple::before,
+body.dark-theme .mat-mdc-paginator .mdc-line-ripple::after {
+  border-bottom-color: var(--accent-color) !important;
+}
+
+/* Paginator Navigation Buttons (First, Previous, Next, Last) */
+body.dark-theme .mat-mdc-paginator .mat-mdc-icon-button {
+  color: var(--accent-color) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  border-radius: 8px !important;
+  margin: 0 3px !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, color 0.2s ease;
+}
+
+body.dark-theme .mat-mdc-paginator .mat-mdc-icon-button svg,
+body.dark-theme .mat-mdc-paginator .mat-mdc-icon-button .mat-mdc-paginator-icon {
+  fill: currentColor !important;
+}
+
+body.dark-theme .mat-mdc-paginator .mat-mdc-icon-button:hover:not(:disabled) {
+  background-color: rgba(52, 179, 138, 0.22) !important;
+  border-color: var(--accent-color) !important;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+body.dark-theme .mat-mdc-paginator .mat-mdc-icon-button:disabled {
+  color: rgba(230, 242, 237, 0.25) !important;
+  background-color: rgba(255, 255, 255, 0.02) !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  cursor: not-allowed;
+  opacity: 1 !important;
+}
+
+body.dark-theme .mat-mdc-paginator .mat-mdc-icon-button:disabled svg,
+body.dark-theme .mat-mdc-paginator .mat-mdc-icon-button:disabled .mat-mdc-paginator-icon {
+  fill: rgba(230, 242, 237, 0.25) !important;
+}
+
+/* Select dropdown options panel in dark mode */
+body.dark-theme .mat-mdc-select-panel {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color);
+}
+
+body.dark-theme .mat-mdc-option {
+  color: var(--text-primary) !important;
+}
+
+body.dark-theme .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+  color: var(--accent-color) !important;
+  font-weight: 600;
+}
+
+body.dark-theme .mat-mdc-option:hover:not(.mdc-list-item--disabled) {
+  background-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 @media (max-width: 720px) {
